@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complex Code Example</title>
+    <style>
+        /* CSS styles for the output container */
+        #output-container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* CSS styles for the success message */
+        .success-message {
+            font-size: 18px;
+            color: green;
+            margin-top: 20px;
+        }
+
+        /* CSS styles for the website link */
+        .website-link {
+            font-size: 16px;
+            color: blue;
+            margin-top: 10px;
+            cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+            text-decoration: underline; /* Add underline to indicate it's a link */
+            display: block; /* Display links as block elements for separation */
+        }
+
+        /* CSS styles for the logos */
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="output-container"></div>
+
+<script>
+    // Define a complex function to handle user input
+    function handleUserInput(input) {
+        const userString = input.trim().toLowerCase();
+        
+        // Complex algorithm to validate user input
+        const isValidInput = userString === "hello";
+        
+        if (isValidInput) {
+            displaySuccessMessage("🎉 WELCOME TO THRILL COMIC SCENES! 🎉");
+            displayWebsiteLink("VISIT THRILL COMIC SCENES (WORDPRESS)", "https://thrillcomicscenes.wordpress.com/");
+            displayWebsiteLink("VISIT THRILL COMIC SCENES (GOOGLE SITES)", "https://sites.google.com/view/thrillcomicscenes?usp=sharing");
+        } else {
+            displayErrorMessage("Sorry, we didn't recognize your input. Please try again.");
+        }
+    }
+
+    // Define a function to display success messages to the user
+    function displaySuccessMessage(message) {
+        const messageElement = document.createElement("div");
+        messageElement.textContent = message;
+        messageElement.classList.add("success-message"); // Add success-message class
+        const outputContainer = document.getElementById("output-container");
+        outputContainer.innerHTML = ""; // Clear previous messages
+        outputContainer.appendChild(messageElement);
+    }
+
+    // Define a function to display a website link to the user
+    function displayWebsiteLink(message, url) {
+        const linkElement = document.createElement("a");
+        linkElement.textContent = message;
+        linkElement.classList.add("website-link"); // Add website-link class
+        linkElement.href = url; // Set link URL
+        linkElement.target = "_blank"; // Open link in a new tab
+        const outputContainer = document.getElementById("output-container");
+        outputContainer.appendChild(linkElement);
+    }
+
+    // Define a function to display error messages to the user
+    function displayErrorMessage(message) {
+        const messageElement = document.createElement("div");
+        messageElement.textContent = message;
+        messageElement.classList.add("error-message"); // Add error-message class
+        const outputContainer = document.getElementById("output-container");
+        outputContainer.innerHTML = ""; // Clear previous messages
+        outputContainer.appendChild(messageElement);
+    }
+
+    // Example usage: Call the handleUserInput function with user input
+    const userInput = prompt("Please input 'hello' to proceed:");
+    handleUserInput(userInput);
+</script>
+
+</body>
+</html>
